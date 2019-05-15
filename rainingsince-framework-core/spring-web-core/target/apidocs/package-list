@@ -1,8 +1,0 @@
-com.rainingsince.web.context
-com.rainingsince.web.exception
-com.rainingsince.web.jasypt
-com.rainingsince.web.jwt
-com.rainingsince.web.response
-com.rainingsince.web.utils
-com.rainingsince.web.version
-com.rainingsince.web.xss
