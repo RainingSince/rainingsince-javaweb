@@ -1,0 +1,24 @@
+{
+  "groups": [
+    {
+      "name": "rainingsince",
+      "type": "com.rainingsince.web.autoconfigure.ProjectProperties",
+      "sourceType": "com.rainingsince.web.autoconfigure.ProjectProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "rainingsince.token-key",
+      "type": "java.lang.String",
+      "sourceType": "com.rainingsince.web.autoconfigure.ProjectProperties",
+      "defaultValue": "ZmFzdGVyLWZyYW1ld29yaw=="
+    },
+    {
+      "name": "rainingsince.version-enable",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.rainingsince.web.autoconfigure.ProjectProperties",
+      "defaultValue": false
+    }
+  ],
+  "hints": []
+}

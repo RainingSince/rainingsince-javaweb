@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rainingsince-framework-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rainingsince-framework-core/spring-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rainingsince-framework-core/spring-mybatis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rainingsince-framework-core/spring-shiro" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rainingsince-framework-core/spring-web-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starts/rainingsince-admin-start" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starts/rainingsince-mybatis-start" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starts/rainingsince-shiro-start" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starts/rainingsince-web-start" charset="UTF-8" />
+  </component>
+</project>

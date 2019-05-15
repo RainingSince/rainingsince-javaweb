@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>rainingsince-framework-core</module>
+        <module>spring-boot-starts</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.4.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.rainingsince</groupId>
+    <artifactId>rainingsince-framework-project</artifactId>
+    <packaging>pom</packaging>
+    <version>${rsversion}</version>
+
+    <properties>
+        <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+        <rsversion>0.0.5</rsversion>
+        <jwt-version>3.2.0</jwt-version>
+        <jjwt-version>0.7.0</jjwt-version>
+        <shiro-version>1.4.0</shiro-version>
+        <jasypt-version>2.0.0</jasypt-version>
+        <mybatis-plus-version>3.1.1</mybatis-plus-version>
+        <fast-json-version>1.2.57</fast-json-version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${jwt-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fast-json-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>${jasypt-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>spring-web-core</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>rainingsince-web-start</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>spring-mybatis</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>spring-admin</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-ehcache</artifactId>
+                <version>${shiro-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>spring-shiro</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>rainingsince-shiro-start</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>rainingsince-mybatis-start</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>rainingsince-admin-start</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <name>RainingSince</name>
+
+    <description>
+        spring boot 快速启动模板
+    </description>
+
+    <url>
+        https://github.com/RainingSince/rainingsince-javaweb.git
+    </url>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>曹德博</name>
+            <email>185224905@qq.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git@github.com:Raining/rainingsince-javaweb.git</connection>
+        <developerConnection>scm:git@github.com:Raining/rainingsince-javaweb.git</developerConnection>
+        <url>git@github.com:Raining/rainingsince-javaweb.git</url>
+    </scm>
+
+    <issueManagement>
+        <system>Github Issue</system>
+        <url>https://github.com/RainingSince/issues/rainingsince-javaweb</url>
+    </issueManagement>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>oss</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+                </snapshotRepository>
+                <repository>
+                    <id>oss</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+            <build>
+                <plugins>
+                    <!-- Source -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.0.1</version>
+                        <executions>
+                            <execution>
+                                <id>oss</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- Gpg Signature -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>oss</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.8</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>oss</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <build>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <!--此插件用于install/deploy时继承父类version-->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target</outputDirectory>
+                            <updatePomFile>true</updatePomFile>
+                            <pomElements>
+                                <parent>expand</parent>
+                                <name>keep</name>
+                                <description>keep</description>
+                                <url>keep</url>
+                                <properties>keep</properties>
+                                <pluginManagement>keep</pluginManagement>
+                                <dependencyManagement>keep</dependencyManagement>
+                                <build>remove</build>
+                            </pomElements>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>flatten-clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+
+    </build>
+
+</project>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="rainingsince-admin-start" />
+        <module name="rainingsince-mybatis-start" />
+        <module name="rainingsince-shiro-start" />
+        <module name="rainingsince-web-start" />
+        <module name="spring-admin" />
+        <module name="spring-mybatis" />
+        <module name="spring-shiro" />
+        <module name="spring-web-core" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="rainingsince-admin-start" target="8" />
+      <module name="rainingsince-framework-core" target="8" />
+      <module name="rainingsince-mybatis-start" target="8" />
+      <module name="rainingsince-shiro-start" target="8" />
+      <module name="rainingsince-web-start" target="8" />
+      <module name="spring-admin" target="8" />
+      <module name="spring-boot-starts" target="8" />
+      <module name="spring-mybatis" target="8" />
+      <module name="spring-shiro" target="8" />
+      <module name="spring-web-core" target="8" />
+      <module name="springbootparentraining" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="rainingsince-admin-start" options="-parameters" />
+      <module name="rainingsince-mybatis-start" options="-parameters" />
+      <module name="rainingsince-shiro-start" options="-parameters" />
+      <module name="rainingsince-web-start" options="-parameters" />
+      <module name="spring-admin" options="-parameters" />
+      <module name="spring-mybatis" options="-parameters" />
+      <module name="spring-shiro" options="-parameters" />
+      <module name="spring-web-core" options="-parameters" />
+    </option>
+  </component>
+</project>
