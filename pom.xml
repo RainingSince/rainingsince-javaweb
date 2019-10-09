@@ -12,7 +12,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.4.RELEASE</version>
+        <version>2.1.5.RELEASE</version>
         <relativePath/>
     </parent>
 
@@ -24,10 +24,10 @@
     <properties>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
-        <rsversion>0.0.5</rsversion>
+        <rsversion>0.1.0</rsversion>
         <jwt-version>3.2.0</jwt-version>
         <jjwt-version>0.7.0</jjwt-version>
-        <shiro-version>1.4.0</shiro-version>
+        <shiro-version>1.4.1</shiro-version>
         <jasypt-version>2.0.0</jasypt-version>
         <mybatis-plus-version>3.1.1</mybatis-plus-version>
         <fast-json-version>1.2.57</fast-json-version>

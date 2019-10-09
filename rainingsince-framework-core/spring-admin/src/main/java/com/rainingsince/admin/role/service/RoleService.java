@@ -59,7 +59,8 @@ public class RoleService extends ServiceImpl<RoleMapper, Role> {
     }
 
     public boolean isExit(Role entity) {
-        return getOne(new QueryWrapper<Role>().eq("name", entity.getName())) != null;
+        Role one =  getOne(new QueryWrapper<Role>().eq("name", entity.getName()));
+        return  one!=null && !one.getId().equals(entity.getId());
     }
 
     @Override

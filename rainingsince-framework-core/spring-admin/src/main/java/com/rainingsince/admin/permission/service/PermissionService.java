@@ -50,8 +50,9 @@ public class PermissionService extends ServiceImpl<PermisssionMapper, Permission
     }
 
     public boolean isExit(Permission entity) {
-        return super.getOne(new QueryWrapper<Permission>()
-                .eq("code", entity.getCode())) != null;
+        Permission one =  super.getOne(new QueryWrapper<Permission>()
+                .eq("code", entity.getCode())) ;
+        return one != null && !one.getId().equals(entity.getId());
     }
 
     @Override

@@ -87,8 +87,9 @@ public class UserService extends
     }
 
     public boolean isExit(User user) {
-        return getOne(new QueryWrapper<User>()
-                .eq("name", user.getName())) != null;
+        User one = getOne(new QueryWrapper<User>()
+                .eq("name", user.getName()));
+        return one != null && !user.getId().equals(one.getId());
     }
 
 }
