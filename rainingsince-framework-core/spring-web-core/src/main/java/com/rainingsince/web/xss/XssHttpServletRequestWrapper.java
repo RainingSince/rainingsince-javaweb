@@ -114,7 +114,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
     }
 
     private String xssEncode(String input) {
-        return htmlFilter.filter(input);
+        return SQLFilter.sqlInject(htmlFilter.filter(input));
     }
 
     /**

@@ -18,6 +18,13 @@
         <module>spring-shiro</module>
         <module>spring-mybatis</module>
         <module>spring-admin</module>
+        <module>spring-data-base</module>
+        <module>spring-jpa</module>
+        <module>spring-data-redis</module>
+        <module>spring-data-mongodb</module>
+        <module>spring-data-elasticsearch</module>
+        <module>spring-data-hadoop</module>
+        <module>spring-security</module>
     </modules>
 
 

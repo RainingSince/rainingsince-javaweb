@@ -15,7 +15,6 @@ import com.rainingsince.admin.userRole.entity.UserRole;
 import com.rainingsince.admin.userRole.service.UserRoleService;
 import com.rainingsince.web.response.ResponseBuilder;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,7 +45,7 @@ public class RoleService extends ServiceImpl<RoleMapper, Role> {
 
     public ResponseEntity saveNotExit(Role entity) {
         if (isExit(entity)) return ResponseBuilder.error(RoleError.ROLE_EXIT);
-        return ResponseBuilder.ok(save(entity));
+        return ResponseBuilder.success(save(entity));
     }
 
     public Long saveRolePermissions(String id, List<String> permissions) {
@@ -55,7 +54,7 @@ public class RoleService extends ServiceImpl<RoleMapper, Role> {
 
     public ResponseEntity updateNotExit(Role entity) {
         if (isExit(entity)) return ResponseBuilder.error(RoleError.ROLE_EXIT);
-        return ResponseBuilder.ok(updateById(entity));
+        return ResponseBuilder.success(updateById(entity));
     }
 
     public boolean isExit(Role entity) {

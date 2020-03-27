@@ -1,7 +1,7 @@
 package com.rainingsince.web.xss;
 
 
-import com.rainingsince.web.exception.MyException;
+import com.rainingsince.web.exception.BaseErrorException;
 import org.springframework.util.StringUtils;
 
 public class SQLFilter {
@@ -12,6 +12,7 @@ public class SQLFilter {
      * @param str 待验证的字符串
      */
     public static String sqlInject(String str) {
+        String oldStr = str;
         if (StringUtils.isEmpty(str)) {
             return null;
         }
@@ -29,11 +30,11 @@ public class SQLFilter {
 
         //判断是否包含非法字符
         for (String keyword : keywords) {
-            if (str.indexOf(keyword) != -1) {
-                throw new MyException("包含非法字符");
+            if (str.contains(keyword)) {
+                throw new BaseErrorException("包含非法字符");
             }
         }
 
-        return str;
+        return oldStr;
     }
 }

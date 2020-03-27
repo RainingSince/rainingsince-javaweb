@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class BaseData implements Serializable {
+public class BaseData implements Serializable ,PageBuilder{
 
     @TableId("id")
     private String id;
@@ -34,6 +34,10 @@ public class BaseData implements Serializable {
     private Integer deleted;
 
     public <T> IPage<T> toPage() {
+        return new Page<>(current, step);
+    }
+
+    public <T> IPage<T> toPage(int current, int step) {
         return new Page<>(current, step);
     }
 }

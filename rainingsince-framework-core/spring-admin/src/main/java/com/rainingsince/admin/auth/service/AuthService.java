@@ -3,7 +3,6 @@ package com.rainingsince.admin.auth.service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.rainingsince.admin.auth.entity.Auth;
 import com.rainingsince.admin.auth.error.AuthError;
-import com.rainingsince.admin.shiro.MyShiroReaml;
 import com.rainingsince.admin.user.entity.User;
 import com.rainingsince.admin.user.service.UserService;
 import com.rainingsince.shiro.JwtToken;
@@ -17,10 +16,8 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -48,7 +45,7 @@ public class AuthService {
         Auth login = new Auth(user.getName(), token);
         Subject subject = SecurityUtils.getSubject();
         subject.login(new JwtToken(token));
-        return ResponseBuilder.ok(login);
+        return ResponseBuilder.success(login);
     }
 
 

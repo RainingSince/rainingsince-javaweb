@@ -1,14 +1,14 @@
 package com.rainingsince.shiro;
 
-import com.rainingsince.web.context.ApplicationProvider;
-import com.rainingsince.web.jwt.TokenService;
-import io.jsonwebtoken.Claims;
+
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.web.filter.authc.AuthenticatingFilter;
 import org.apache.shiro.web.util.WebUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.ServletRequest;
@@ -22,6 +22,9 @@ public class SinceShiroFilter extends AuthenticatingFilter {
     protected AuthenticationToken createToken(ServletRequest servletRequest, ServletResponse servletResponse) throws Exception {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String token = request.getHeader(HttpHeaders.AUTHORIZATION);
+        if(StringUtils.isEmpty(token)){
+            token = (String) SecurityUtils.getSubject().getSession().getAttribute(HttpHeaders.AUTHORIZATION);
+        }
         return new JwtToken(token);
     }
 
@@ -38,7 +41,6 @@ public class SinceShiroFilter extends AuthenticatingFilter {
     @Override
     protected boolean preHandle(ServletRequest request, ServletResponse response) throws Exception {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         httpResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
         httpResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS, "GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS,TRACE");
         httpResponse.setHeader("Access-Control-Allow-Headers", "*");

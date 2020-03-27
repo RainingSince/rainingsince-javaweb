@@ -20,12 +20,12 @@ public class AuthController {
 
     @PostMapping("/logout")
     public ResponseEntity logout() {
-        return ResponseBuilder.ok(authService.logout());
+        return ResponseBuilder.success(authService.logout());
     }
 
     @GetMapping("/permissions")
     public ResponseEntity permissions() {
-        return ResponseBuilder.ok(authService.permissions());
+        return ResponseBuilder.success(authService.permissions());
     }
 
 }

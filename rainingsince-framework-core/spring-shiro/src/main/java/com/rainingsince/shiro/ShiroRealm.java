@@ -1,8 +1,7 @@
 package com.rainingsince.shiro;
 
 import com.rainingsince.web.context.ApplicationProvider;
-import com.rainingsince.web.context.RequestContext;
-import com.rainingsince.web.exception.MyException;
+import com.rainingsince.web.exception.BaseErrorException;
 import com.rainingsince.web.jwt.TokenService;
 import io.jsonwebtoken.Claims;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -35,7 +34,7 @@ public abstract class ShiroRealm extends AuthorizingRealm {
             Claims claims = bean.validateToken(token);
             if (claims != null) {
                 if (claims.getAudience() == null) {
-                    throw new MyException();
+                    throw new BaseErrorException();
                 }
                 return new SimpleAuthenticationInfo(claims.getAudience(), authenticationToken.getCredentials().toString(),
                         getName());

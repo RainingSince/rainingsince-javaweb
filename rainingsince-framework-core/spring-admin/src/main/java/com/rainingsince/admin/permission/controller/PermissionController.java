@@ -5,7 +5,6 @@ import com.rainingsince.admin.permission.service.PermissionService;
 import com.rainingsince.web.response.ResponseBuilder;
 import lombok.AllArgsConstructor;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,19 +20,19 @@ public class PermissionController {
     @GetMapping("/list")
     @RequiresPermissions("permissions:list")
     public ResponseEntity getAllPermission() {
-        return ResponseBuilder.ok(permissionService.list());
+        return ResponseBuilder.success(permissionService.list());
     }
 
     @GetMapping
     @RequiresPermissions("permissions:list")
     public ResponseEntity getPagePermission(Permission permission) {
-        return ResponseBuilder.ok(permissionService.pages(permission));
+        return ResponseBuilder.success(permissionService.pages(permission));
     }
 
     @GetMapping("/{id}")
     @RequiresPermissions("permissions:info")
     public ResponseEntity getPermission(@PathVariable String id) {
-        return ResponseBuilder.ok(permissionService.getById(id));
+        return ResponseBuilder.success(permissionService.getById(id));
     }
 
     @PostMapping
@@ -51,13 +50,13 @@ public class PermissionController {
     @DeleteMapping("/{id}")
     @RequiresPermissions("permissions:delete")
     public ResponseEntity deletePermission(@PathVariable String id) {
-        return ResponseBuilder.ok(permissionService.removeById(id));
+        return ResponseBuilder.success(permissionService.removeById(id));
     }
 
     @DeleteMapping()
     @RequiresPermissions("permissions:delete")
     public ResponseEntity deletePermissions(@RequestBody List<String> ids) {
-        return ResponseBuilder.ok(permissionService.removeByIds(ids));
+        return ResponseBuilder.success(permissionService.removeByIds(ids));
     }
 
 }

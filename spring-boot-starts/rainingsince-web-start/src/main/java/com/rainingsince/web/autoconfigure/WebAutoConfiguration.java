@@ -1,12 +1,13 @@
 package com.rainingsince.web.autoconfigure;
 
 import com.rainingsince.web.context.ApplicationProvider;
-import com.rainingsince.web.context.BaseContextInterceptor;
-import com.rainingsince.web.exception.GlobalExceptionHandler;
+import com.rainingsince.web.context.BaseRequestContextExecutor;
+import com.rainingsince.web.context.ContextInterceptor;
+import com.rainingsince.web.exception.BaseExceptionExecutor;
+import com.rainingsince.web.execption.GlobalExceptionHandler;
 import com.rainingsince.web.jwt.TokenService;
 import com.rainingsince.web.version.ApiHandlerMapping;
 import com.rainingsince.web.xss.XssFilter;
-import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -16,9 +17,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.util.StringUtils;
@@ -31,25 +30,36 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 @Configuration
 @Import({GlobalExceptionHandler.class, ApplicationProvider.class})
-@EnableConfigurationProperties({ProjectProperties.class})
-@EnableEncryptableProperties
+@EnableConfigurationProperties({ProjectWebProperties.class})
 @EnableTransactionManagement
 @EnableScheduling
+@EnableCaching
 public class WebAutoConfiguration implements WebMvcConfigurer, WebMvcRegistrations {
 
     @Value("${spring.profiles.active}")
     private String profiles;
 
     @Autowired
-    private ProjectProperties projectProperties;
+    private ProjectWebProperties projectProperties;
 
     @Bean
     @ConditionalOnMissingBean
-    public TokenService tokenService(ProjectProperties properties) {
+    public TokenService tokenService(ProjectWebProperties properties) {
         if (StringUtils.isEmpty(profiles)) profiles = "project";
         return new TokenService(properties.getTokenKey(), profiles);
     }
 
+    @Bean
+    @ConditionalOnMissingBean
+    public BaseRequestContextExecutor baseRequestContextExecutor(){
+        return new BaseRequestContextExecutor();
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public BaseExceptionExecutor baseExceptionExecutor(){
+        return new BaseExceptionExecutor();
+    }
 
     @Override
     public RequestMappingHandlerMapping getRequestMappingHandlerMapping() {
@@ -62,7 +72,7 @@ public class WebAutoConfiguration implements WebMvcConfigurer, WebMvcRegistratio
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new BaseContextInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor(new ContextInterceptor()).addPathPatterns("/**");
     }
 
 

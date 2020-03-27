@@ -20,19 +20,19 @@ public class UserController {
     @GetMapping("/list")
     @RequiresPermissions("users:list")
     public ResponseEntity getAllRoles() {
-        return ResponseBuilder.ok(userService.list());
+        return ResponseBuilder.success(userService.list());
     }
 
     @GetMapping()
     @RequiresPermissions("users:list")
     public ResponseEntity getRolesPage(User user) {
-        return ResponseBuilder.ok(userService.pages(user));
+        return ResponseBuilder.success(userService.pages(user));
     }
 
     @GetMapping("/{userId}")
     @RequiresPermissions("users:info")
     public ResponseEntity getRole(@PathVariable String userId) {
-        return ResponseBuilder.ok(userService.getById(userId));
+        return ResponseBuilder.success(userService.getById(userId));
     }
 
     @PostMapping()
@@ -51,19 +51,19 @@ public class UserController {
     @RequiresPermissions("users:roles:choose")
     public ResponseEntity updatePermissionByRole(@PathVariable String userId,
                                                  @RequestBody List<String> roles) {
-        return ResponseBuilder.ok(userService.saveUserRoles(userId, roles));
+        return ResponseBuilder.success(userService.saveUserRoles(userId, roles));
     }
 
     @DeleteMapping("/{userId}")
     @RequiresPermissions("users:delete")
     public ResponseEntity deleteRole(@PathVariable String userId) {
-        return ResponseBuilder.ok(userService.removeById(userId));
+        return ResponseBuilder.success(userService.removeById(userId));
     }
 
     @DeleteMapping("/select")
     @RequiresPermissions("users:delete")
     public ResponseEntity deleteRoles(@RequestBody List<String> ids) {
-        return ResponseBuilder.ok(userService.removeByIds(ids));
+        return ResponseBuilder.success(userService.removeByIds(ids));
     }
 
 }

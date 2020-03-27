@@ -1,24 +1,24 @@
 package com.rainingsince.web.context;
 
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.jws.Oneway;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Map;
 
-public abstract class ContextInterceptor<T> implements HandlerInterceptor {
+public class ContextInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        T t = formatRequestContext(request);
-        ApplicationProvider.setRequestContext(t);
-        request.setAttribute("baseContext", t);
+        Map<String, RequestContextExecutor> beansOfType = ApplicationProvider.applicationContext.getBeansOfType(RequestContextExecutor.class);
+        RequestContext context = new RequestContext();
+        for (Map.Entry<String, RequestContextExecutor> entry : beansOfType.entrySet()) {
+            entry.getValue().execute(request, context);
+        }
+        ApplicationProvider.setRequestContext(context);
+        request.setAttribute("baseContext", context);
         return true;
     }
-
-    public abstract T formatRequestContext(HttpServletRequest request);
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {

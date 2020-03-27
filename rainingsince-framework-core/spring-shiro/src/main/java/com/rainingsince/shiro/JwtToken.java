@@ -1,6 +1,5 @@
 package com.rainingsince.shiro;
 
-import io.jsonwebtoken.Claims;
 import org.apache.shiro.authc.AuthenticationToken;
 
 public class JwtToken implements AuthenticationToken {

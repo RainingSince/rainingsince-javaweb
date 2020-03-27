@@ -11,14 +11,12 @@ import com.rainingsince.admin.rolePermission.entity.RolePermission;
 import com.rainingsince.admin.rolePermission.service.RolePermissionService;
 import com.rainingsince.web.response.ResponseBuilder;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
 
 @Service
 @Transactional
@@ -35,12 +33,12 @@ public class PermissionService extends ServiceImpl<PermisssionMapper, Permission
 
     public ResponseEntity saveNotExit(Permission entity) {
         if (isExit(entity)) return ResponseBuilder.error(PermissionError.PERMISSION_EXIT);
-        return ResponseBuilder.ok(save(entity));
+        return ResponseBuilder.success(save(entity));
     }
 
     public ResponseEntity updateNotExit(Permission entity) {
         if (isExit(entity)) return ResponseBuilder.error(PermissionError.PERMISSION_EXIT);
-        return ResponseBuilder.ok(updateById(entity));
+        return ResponseBuilder.success(updateById(entity));
     }
 
 

@@ -18,15 +18,11 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.rainingsince</groupId>
             <artifactId>spring-web-core</artifactId>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
         </dependency>
 
         <dependency>
@@ -34,6 +30,12 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <dependency>
+            <groupId>com.rainingsince</groupId>
+            <artifactId>spring-data-base</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

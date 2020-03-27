@@ -5,7 +5,6 @@ import com.rainingsince.admin.role.service.RoleService;
 import com.rainingsince.web.response.ResponseBuilder;
 import lombok.AllArgsConstructor;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,19 +20,19 @@ public class RoleController {
     @GetMapping("/list")
     @RequiresPermissions("roles:list")
     public ResponseEntity getAllRoles() {
-        return ResponseBuilder.ok(roleService.list());
+        return ResponseBuilder.success(roleService.list());
     }
 
     @GetMapping()
     @RequiresPermissions("roles:list")
     public ResponseEntity getRolesPage(Role role) {
-        return ResponseBuilder.ok(roleService.pages(role));
+        return ResponseBuilder.success(roleService.pages(role));
     }
 
     @GetMapping("/{roleId}")
     @RequiresPermissions("roles:info")
     public ResponseEntity getRole(@PathVariable String roleId) {
-        return ResponseBuilder.ok(roleService.getById(roleId));
+        return ResponseBuilder.success(roleService.getById(roleId));
     }
 
     @PostMapping()
@@ -52,19 +51,19 @@ public class RoleController {
     @RequiresPermissions("roles:permissions:choose")
     public ResponseEntity updatePermissionByRole(@PathVariable String roleId,
                                                  @RequestBody List<String> perms) {
-        return ResponseBuilder.ok(roleService.saveRolePermissions(roleId, perms));
+        return ResponseBuilder.success(roleService.saveRolePermissions(roleId, perms));
     }
 
     @DeleteMapping("/{roleId}")
     @RequiresPermissions("roles:delete")
     public ResponseEntity deleteRole(@PathVariable String roleId) {
-        return ResponseBuilder.ok(roleService.removeById(roleId));
+        return ResponseBuilder.success(roleService.removeById(roleId));
     }
 
     @DeleteMapping("/select")
     @RequiresPermissions("roles:delete")
     public ResponseEntity deleteRoles(@RequestBody List<String> ids) {
-        return ResponseBuilder.ok(roleService.removeByIds(ids));
+        return ResponseBuilder.success(roleService.removeByIds(ids));
     }
 
 }

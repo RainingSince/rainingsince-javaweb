@@ -24,17 +24,24 @@
     <properties>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
-        <rsversion>0.1.0</rsversion>
+        <rsversion>0.1.1</rsversion>
         <jwt-version>3.2.0</jwt-version>
         <jjwt-version>0.7.0</jjwt-version>
         <shiro-version>1.4.1</shiro-version>
         <jasypt-version>2.0.0</jasypt-version>
+        <hadoop-version>2.5.0.RELEASE</hadoop-version>
         <mybatis-plus-version>3.1.1</mybatis-plus-version>
         <fast-json-version>1.2.57</fast-json-version>
+        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-hadoop</artifactId>
+                <version>${hadoop-version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.auth0</groupId>
                 <artifactId>java-jwt</artifactId>
@@ -76,6 +83,36 @@
                 <version>${rsversion}</version>
             </dependency>
             <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>spring-data-base</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>spring-jpa</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>spring-data-redis</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>spring-data-mongodb</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>spring-data-hadoop</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>spring-data-elasticsearch</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-spring</artifactId>
                 <version>${shiro-version}</version>
@@ -88,6 +125,11 @@
             <dependency>
                 <groupId>com.rainingsince</groupId>
                 <artifactId>spring-shiro</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>spring-security</artifactId>
                 <version>${rsversion}</version>
             </dependency>
             <dependency>
@@ -106,9 +148,51 @@
                 <version>${rsversion}</version>
             </dependency>
             <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>rainingsince-security-start</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>rainingsince-data-start</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>rainingsince-redis-start</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>rainingsince-mongodb-start</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>rainingsince-hadoop-start</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>rainingsince-elasticsearch-start</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>rainingsince-shiro-redis-start</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

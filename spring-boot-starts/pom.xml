@@ -18,6 +18,13 @@
         <module>rainingsince-shiro-start</module>
         <module>rainingsince-admin-start</module>
         <module>rainingsince-mybatis-start</module>
+        <module>rainingsince-data-start</module>
+        <module>rainingsince-elasticsearch-start</module>
+        <module>rainingsince-redis-start</module>
+        <module>rainingsince-hadoop-start</module>
+        <module>rainingsince-mongodb-start</module>
+        <module>rainingsince-shiro-redis-start</module>
+        <module>rainingsince-security-start</module>
     </modules>
 
 </project>

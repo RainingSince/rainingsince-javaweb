@@ -13,7 +13,6 @@ import com.rainingsince.admin.userRole.entity.UserRole;
 import com.rainingsince.admin.userRole.service.UserRoleService;
 import com.rainingsince.web.response.ResponseBuilder;
 import lombok.AllArgsConstructor;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -60,7 +59,7 @@ public class UserService extends
 
     public ResponseEntity saveNotExit(User entity) {
         if (isExit(entity)) return ResponseBuilder.error(UserError.USER_NAME_EXIT);
-        return ResponseBuilder.ok(save(entity));
+        return ResponseBuilder.success(save(entity));
     }
 
     public Long saveUserRoles(String userId, List<String> roleIds) {
@@ -69,7 +68,7 @@ public class UserService extends
 
     public ResponseEntity updateNotExit(User entity) {
         if (isExit(entity)) return ResponseBuilder.error(UserError.USER_NAME_EXIT);
-        return ResponseBuilder.ok(updateById(entity));
+        return ResponseBuilder.success(updateById(entity));
     }
 
     @Override
