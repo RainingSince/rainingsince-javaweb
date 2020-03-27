@@ -14,20 +14,17 @@
     <dependencies>
         <dependency>
             <groupId>com.rainingsince</groupId>
-            <artifactId>spring-web-core</artifactId>
-            <optional>true</optional>
+            <artifactId>rainingsince-web-start</artifactId>
         </dependency>
 
         <dependency>
             <groupId>com.rainingsince</groupId>
-            <artifactId>spring-shiro</artifactId>
-            <optional>true</optional>
+            <artifactId>rainingsince-shiro-start</artifactId>
         </dependency>
 
         <dependency>
             <groupId>com.rainingsince</groupId>
-            <artifactId>spring-mybatis</artifactId>
-            <optional>true</optional>
+            <artifactId>rainingsince-mybatis-start</artifactId>
         </dependency>
 
         <dependency>

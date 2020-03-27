@@ -13,14 +13,10 @@
     <artifactId>rainingsince-admin-start</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.rainingsince</groupId>
-            <artifactId>spring-admin</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.rainingsince</groupId>
-            <artifactId>rainingsince-shiro-start</artifactId>
+            <artifactId>spring-admin</artifactId>
         </dependency>
 
         <dependency>

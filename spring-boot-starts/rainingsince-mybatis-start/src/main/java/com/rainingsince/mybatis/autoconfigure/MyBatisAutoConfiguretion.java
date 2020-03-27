@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
-import com.rainingsince.mybatis.plugs.MyMetaObjectHandler;
 import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -21,11 +20,6 @@ public class MyBatisAutoConfiguretion {
         return new PaginationInterceptor();
     }
 
-    @Bean
-    @ConditionalOnMissingBean
-    public MyMetaObjectHandler metaObjectHandler() {
-        return new MyMetaObjectHandler();
-    }
 
     @Bean
     @ConditionalOnMissingBean

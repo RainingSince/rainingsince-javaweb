@@ -2,8 +2,7 @@ package com.rainingsince.admin.role.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.rainingsince.admin.permission.entity.Permission;
-import com.rainingsince.mybatis.entity.BaseData;
+import com.rainingsince.admin.entity.BaseData;
 import lombok.Data;
 
 import java.util.List;

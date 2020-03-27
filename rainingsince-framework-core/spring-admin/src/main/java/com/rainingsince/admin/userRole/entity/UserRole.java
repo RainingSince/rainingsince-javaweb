@@ -1,7 +1,7 @@
 package com.rainingsince.admin.userRole.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.rainingsince.mybatis.entity.BaseData;
+import com.rainingsince.admin.entity.BaseData;
 import lombok.Data;
 
 @Data

@@ -1,4 +1,4 @@
-package com.rainingsince.mybatis.plugs;
+package com.rainingsince.admin.plugs;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.rainingsince.web.context.ApplicationProvider;

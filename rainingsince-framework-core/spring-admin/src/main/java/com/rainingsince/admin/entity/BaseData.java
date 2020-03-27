@@ -1,4 +1,4 @@
-package com.rainingsince.mybatis.entity;
+package com.rainingsince.admin.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -6,13 +6,14 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.rainingsince.mybatis.entity.PageBuilder;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class BaseData implements Serializable ,PageBuilder{
+public class BaseData implements Serializable , PageBuilder {
 
     @TableId("id")
     private String id;
