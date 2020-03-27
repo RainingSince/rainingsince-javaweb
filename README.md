@@ -7,9 +7,9 @@ rainingsince with javaweb
 
 ### 框架说明文档 
 
-[说明文档](http://doc.rainingsince.com?_blank)
+[说明文档](http://doc.rainingsince.com)
 
 
 ### 个人博客
 
-[个人博客](http://rainingsince.com?_blank)
+[个人博客](http://rainingsince.com)
