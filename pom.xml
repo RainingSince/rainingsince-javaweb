@@ -24,7 +24,7 @@
     <properties>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
-        <rsversion>0.1.1</rsversion>
+        <rsversion>0.1.2</rsversion>
         <jwt-version>3.2.0</jwt-version>
         <jjwt-version>0.7.0</jjwt-version>
         <shiro-version>1.4.1</shiro-version>
@@ -33,10 +33,22 @@
         <mybatis-plus-version>3.1.1</mybatis-plus-version>
         <fast-json-version>1.2.57</fast-json-version>
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+        <wechat-version>0.2.1</wechat-version>
+        <hutool-version>5.5.8</hutool-version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.github.wechatpay-apiv3</groupId>
+                <artifactId>wechatpay-apache-httpclient</artifactId>
+                <version>${wechat-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-hadoop</artifactId>
@@ -65,6 +77,11 @@
             <dependency>
                 <groupId>com.rainingsince</groupId>
                 <artifactId>spring-web-core</artifactId>
+                <version>${rsversion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rainingsince</groupId>
+                <artifactId>spring-wechat</artifactId>
                 <version>${rsversion}</version>
             </dependency>
             <dependency>

@@ -25,6 +25,7 @@
         <module>spring-data-elasticsearch</module>
         <module>spring-data-hadoop</module>
         <module>spring-security</module>
+        <module>spring-wechat</module>
     </modules>
 
 
