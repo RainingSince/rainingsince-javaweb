@@ -34,7 +34,7 @@ public class RoleService extends ServiceImpl<RoleMapper, Role> {
     private UserRoleService userRoleService;
 
     public IPage<Role> pages(Role role) {
-        return page(role.toPage(), new QueryWrapper<>(role));
+        return page(role.toPage(), new QueryWrapper<>(role).orderByDesc("create_date"));
     }
 
     @Override

@@ -54,7 +54,7 @@ public class UserService extends
     }
 
     public IPage<User> pages(User user) {
-        return page(user.toPage(), new QueryWrapper<>(user));
+        return page(user.toPage(), new QueryWrapper<>(user).orderByDesc("create_date"));
     }
 
     public ResponseEntity saveNotExit(User entity) {

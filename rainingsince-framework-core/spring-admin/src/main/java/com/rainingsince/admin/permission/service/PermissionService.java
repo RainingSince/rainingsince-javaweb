@@ -44,12 +44,12 @@ public class PermissionService extends ServiceImpl<PermisssionMapper, Permission
 
     public IPage<Permission> pages(Permission entity) {
         return super.baseMapper.selectPage(entity.toPage(),
-                new QueryWrapper<>(entity));
+                new QueryWrapper<>(entity).orderByDesc("create_date"));
     }
 
     public boolean isExit(Permission entity) {
-        Permission one =  super.getOne(new QueryWrapper<Permission>()
-                .eq("code", entity.getCode())) ;
+        Permission one = super.getOne(new QueryWrapper<Permission>()
+                .eq("code", entity.getCode()));
         return one != null && !one.getId().equals(entity.getId());
     }
 

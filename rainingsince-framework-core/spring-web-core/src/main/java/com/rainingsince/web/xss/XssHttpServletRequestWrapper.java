@@ -97,7 +97,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
         for (String key : parameters.keySet()) {
             String[] values = parameters.get(key);
             for (int i = 0; i < values.length; i++) {
-                values[i] = xssEncode(values[i]);
+                values[i] = xssEncode(SQLFilter.sqlInject(values[i]));
             }
             map.put(key, values);
         }
@@ -114,7 +114,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
     }
 
     private String xssEncode(String input) {
-        return SQLFilter.sqlInject(htmlFilter.filter(input));
+        return htmlFilter.filter(input);
     }
 
     /**
