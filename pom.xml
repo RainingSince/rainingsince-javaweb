@@ -34,6 +34,7 @@
         <fast-json-version>1.2.57</fast-json-version>
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
         <wechat-version>0.2.1</wechat-version>
+        <ali-version>2.2.0</ali-version>
         <hutool-version>5.5.8</hutool-version>
     </properties>
 
@@ -43,6 +44,11 @@
                 <groupId>com.github.wechatpay-apiv3</groupId>
                 <artifactId>wechatpay-apache-httpclient</artifactId>
                 <version>${wechat-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sdk</groupId>
+                <artifactId>alipay-easysdk</artifactId>
+                <version>${ali-version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.hutool</groupId>
