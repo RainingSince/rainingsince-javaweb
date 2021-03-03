@@ -26,6 +26,7 @@
         <module>spring-data-hadoop</module>
         <module>spring-security</module>
         <module>spring-wechat</module>
+        <module>spring-ali</module>
     </modules>
 
 

@@ -25,6 +25,8 @@
         <module>rainingsince-mongodb-start</module>
         <module>rainingsince-shiro-redis-start</module>
         <module>rainingsince-security-start</module>
+        <module>rainingsince-wechat-start</module>
+        <module>rainingsince-ali-start</module>
     </modules>
 
 </project>
