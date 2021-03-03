@@ -8,11 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-@Component
 public class WeChatClient {
 
-    @Autowired
     private WeChatProperties wechatProperties;
+
+    public WeChatClient(WeChatProperties weChatProperties) {
+        this.wechatProperties = weChatProperties;
+    }
 
 
     public String formatRequestUrl(WeChatReqEntity entity) {

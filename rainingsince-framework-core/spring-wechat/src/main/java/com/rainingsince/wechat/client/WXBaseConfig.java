@@ -4,23 +4,20 @@ import com.rainingsince.wechat.properties.WeChatProperties;
 import com.rainingsince.wechat.utils.ResourceUtil;
 import com.rainingsince.wechat.v2.sdk.IWXPayDomain;
 import com.rainingsince.wechat.v2.sdk.WXPayConfig;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
-@Component
-public class BaseConfig extends WXPayConfig {
-    
-    @Autowired
+public class WXBaseConfig extends WXPayConfig {
+
     private WeChatProperties weChatProperties;
 
     private byte[] certData;
 
-    public BaseConfig() throws Exception {
+    public WXBaseConfig(WeChatProperties weChatProperties) throws Exception {
+        this.weChatProperties = weChatProperties;
         File file = ResourceUtil
                 .getResourceWithPath(weChatProperties.getPrivateKeyPath())
                 .getFile();

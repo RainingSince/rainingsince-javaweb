@@ -3,30 +3,30 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>rainingsince-framework-core</artifactId>
+        <artifactId>spring-boot-starts</artifactId>
         <groupId>com.rainingsince</groupId>
         <version>${rsversion}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-ali</artifactId>
+    <artifactId>rainingsince-wechat-start</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alipay.sdk</groupId>
-            <artifactId>alipay-easysdk</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.rainingsince</groupId>
-            <artifactId>spring-web-core</artifactId>
-            <scope>provided</scope>
+            <artifactId>spring-wechat</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
     </dependencies>
+
+
 </project>
