@@ -17,6 +17,16 @@ public class WeChatClient {
     }
 
 
+    public JSONObject getToken() {
+        String url = " https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="
+                + wechatProperties.getAppId()
+                + "&secret="
+                + wechatProperties.getSecret();
+        String resp = HttpUtil.get(url);
+        return JSONObject.parseObject(resp);
+    }
+
+
     public String formatRequestUrl(WeChatReqEntity entity) {
         return "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" +
                 wechatProperties.getAppId() +
@@ -40,6 +50,22 @@ public class WeChatClient {
         String resp = HttpUtil.get(url);
         return JSONObject.parseObject(resp);
     }
+
+
+    public JSONObject getUserInfoWithCode(String code, String token) {
+        JSONObject tokenWithCode = getTokenWithCode(code);
+        if (StringUtils.isEmpty(tokenWithCode.get("openid"))) {
+            return null;
+        }
+        String url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token="
+                + token
+                + "&openid=" +
+                tokenWithCode.getString("openid")
+                + "&lang=zh_CN";
+        String resp = HttpUtil.get(url);
+        return JSONObject.parseObject(resp);
+    }
+
 
     public JSONObject getUserInfoWithToken(String token, String openId) {
         String url = "https://api.weixin.qq.com/sns/userinfo?access_token=" +
