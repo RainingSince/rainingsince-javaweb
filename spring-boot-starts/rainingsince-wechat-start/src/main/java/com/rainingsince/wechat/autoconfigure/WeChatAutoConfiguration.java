@@ -3,6 +3,7 @@ package com.rainingsince.wechat.autoconfigure;
 import com.rainingsince.wechat.client.WXBaseConfig;
 import com.rainingsince.wechat.client.WeChatClient;
 import com.rainingsince.wechat.properties.WeChatProperties;
+import com.rainingsince.wechat.v2.sdk.WXPay;
 import com.rainingsince.wechat.v2.sdk.WXPayRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -26,8 +27,8 @@ public class WeChatAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public WXPayRequest wxPayRequest() throws Exception {
-        return new WXPayRequest(new WXBaseConfig(weChatProperties));
+    public WXPay wxPayRequest() throws Exception {
+        return new WXPay(new WXBaseConfig(weChatProperties));
     }
 
 }
