@@ -28,7 +28,7 @@ public class WeChatAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public WXPay wxPayRequest() throws Exception {
-        return new WXPay(new WXBaseConfig(weChatProperties));
+        return new WXPay(new WXBaseConfig(weChatProperties), weChatProperties.getNotifyUrl());
     }
 
 }

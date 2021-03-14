@@ -1,7 +1,7 @@
 package com.rainingsince.wechat.client;
 
+import cn.hutool.core.io.resource.ResourceUtil;
 import com.rainingsince.wechat.properties.WeChatProperties;
-import com.rainingsince.wechat.utils.ResourceUtil;
 import com.rainingsince.wechat.v2.sdk.IWXPayDomain;
 import com.rainingsince.wechat.v2.sdk.WXPayConfig;
 import org.springframework.util.StringUtils;
@@ -20,13 +20,7 @@ public class WXBaseConfig extends WXPayConfig {
     public WXBaseConfig(WeChatProperties weChatProperties) throws Exception {
         this.weChatProperties = weChatProperties;
         if (!StringUtils.isEmpty(weChatProperties.getPrivateKeyPath())) {
-            File file = ResourceUtil
-                    .getResourceWithPath(weChatProperties.getPrivateKeyPath())
-                    .getFile();
-            InputStream certStream = new FileInputStream(file);
-            this.certData = new byte[(int) file.length()];
-            certStream.read(this.certData);
-            certStream.close();
+            this.certData = ResourceUtil.readBytes(weChatProperties.getPrivateKeyPath());
         }
 
     }
@@ -43,7 +37,7 @@ public class WXBaseConfig extends WXPayConfig {
 
     @Override
     public String getKey() {
-        return weChatProperties.getApiV3Key();
+        return weChatProperties.getApiKey();
     }
 
     @Override
