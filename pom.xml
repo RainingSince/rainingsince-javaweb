@@ -31,7 +31,7 @@
         <jasypt-version>2.0.0</jasypt-version>
         <hadoop-version>2.5.0.RELEASE</hadoop-version>
         <mybatis-plus-version>3.1.1</mybatis-plus-version>
-        <fast-json-version>1.2.57</fast-json-version>
+        <fast-json-version>1.2.83</fast-json-version>
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
         <wechat-version>0.2.1</wechat-version>
         <ali-version>2.2.0</ali-version>
